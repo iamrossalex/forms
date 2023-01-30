@@ -10,10 +10,137 @@
 	--worms-color-text-success: #00ff00;
 	--worms-color-text-fail: #ff0000;
 	--worms-color-text-invert: #ffffff;
-
-	--worms-font-text: Helvetica, Roboto, Arial;
 }
 .worms * {
 	box-sizing: border-box;
-	font-family: var(--worms-font-text);
+}
+
+/* Label */
+.worms label {
+	color: var(--color-f);
+	text-align: left;
+	font-size: 1rem;
+	line-height: 2rem;
+	font-weight: 400;
+}
+.worms label.required {
+	font-weight: 700;
+}
+.worms label.required sup {
+	color: var(--color-a);
+}
+
+/* Text */
+.worms.text input {
+	outline: none;
+	width: 100%;
+	border: var(--px, 1px) solid var(--worms-color-border);
+	border-radius: 0;
+	background: rgba(255, 255, 255, .8);
+	color: var(--worms-color-text);
+	padding: .66rem 1rem;
+	line-height: 1rem;
+	font-size: 1rem;
+	font-weight: 300;
+}
+.worms.text input:focus {
+	border-color: var(--worms-color-text);
+}
+
+.worms.text.centered input {
+	text-align: center;
+}
+
+.worms.text input::-moz-placeholder {
+	text-overflow: ellipsis;
+	color: var(--worms-color-text-light);
+}
+
+.worms.text input:-moz-placeholder {
+	text-overflow: ellipsis;
+	color: var(--worms-color-text-light);
+}
+
+.worms.text input:-ms-input-placeholder {
+	text-overflow: ellipsis;
+	color: var(--worms-color-text-light);
+}
+
+/* Textarea */
+.worms.text textarea {
+	outline: none;
+	width: 100%;
+	height: 10rem;
+	border: var(--px, 1px) solid var(--worms-color-border);
+	border-radius: 0;
+	background: rgba(255, 255, 255, .8);
+	color: var(--color-f);
+	padding: .66rem 1rem;
+	line-height: 1rem;
+	font-size: 1rem;
+	font-weight: 300;
+}
+.worms.text textarea:focus {
+	border-color: var(--worms-color-text);
+}
+.worms.text textarea::-moz-placeholder {
+	text-overflow: ellipsis;
+	color: var(--worms-color-text-light);
+}
+.worms.text textarea:-moz-placeholder {
+	text-overflow: ellipsis;
+	color: var(--worms-color-text-light);
+}
+.worms.text textarea:-ms-input-placeholder {
+	text-overflow: ellipsis;
+	color: var(--worms-color-text-light);
+}
+
+/* Select */
+.worms.select {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+.worms.select .select_arrow {
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+	border-style: solid;
+	border-width: .5rem .33rem 0 .33rem;
+	border-color: var(--worms-color-text-light) transparent transparent transparent;
+}
+.worms.select select {
+	display: inline-block;
+	width: 100%;
+	cursor: pointer;
+	padding: .66rem 1rem;
+	outline: 0;
+	border: var(--px, 1px) solid var(--worms-color-border);
+	border-radius: 0;
+	background: rgba(255, 255, 255, .8);
+	color: var(--worms-color-text);
+	font-size: 1rem;
+	font-weight: 300;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+.worms.select select::-ms-expand {
+	display: none;
+}
+.worms.select select:disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+.worms.select select:hover~.select_arrow,
+.worms.select select:focus~.select_arrow {
+	border-top-color: var(--worms-color-text);
+}
+
+.worms.select select:disabled~.select_arrow {
+	border-top-color: #999999;
 }

@@ -32,6 +32,6 @@ export default class Columns extends Basics {
 				});
 				break;
 		}
-		return nodes.childNodes;
+		return [this, nodes.childNodes];
 	}
 }

@@ -7,12 +7,14 @@ import Column from "./Layouts/Column.js";
 // import Tabs from "./Elements/Tabs.js";
 // import Group from "./Elements/Group.js";
 
-// import Text from "./Elements/Text.js";
+import Text from "./Elements/Text.js";
 // import Number from "./Elements/Number.js";
 // import Hidden from "./Elements/Hidden.js";
 
+import Textarea from "./Elements/Textarea.js";
+
 // import Check from "./Elements/Check.js";
-// import Select from "./Elements/Select.js";
+import Select from "./Elements/Select.js";
 // import Radio from "./Elements/Radio.js";
 // import Thumbler from "./Elements/Thumbler.js";
 // import Buttons from "./Elements/Buttons.js";
@@ -45,36 +47,38 @@ import Column from "./Layouts/Column.js";
  */
 
 export class Worms {
-	forms = {};
-	constructor(forms) {
-		forms.map((form => {
-			this.create(form);
-		}));
+	constructor() {
+		this.forms = {};
 	}
 	create(form) {
 		this.forms[form['name']] = form;
 		this.forms[form['name']].isRendered = false;
+		this.forms[form['name']].elements = {};
 		this.forms[form['name']].target = document.querySelector(this.forms[form['name']].target);
 		this.forms[form['name']].target.append(...this.render(this.forms[form['name']]));
 	}
-	render(el) {
-		if (el.nodes.length > 0) {
+	render(el, form = null) {
+		if (el.nodes && el.nodes.length > 0) {
 			if(Array.isArray(el.nodes[0])) {
 				var nodes = [];
 				for(let i=0; i<el.nodes.length;i++) {
 					nodes[i] = el.nodes[i].map((node => {
-						return this.render(node);
+						var o, n;
+						[o, n] = this.render(node, form ?? el.name)
+						if (node.name) this.forms[form ?? el.name].elements[node.name] = o;
+						return n;
 					}));
 				}
 				el.nodes = nodes;
-				console.log(el.nodes);
 			} else {
 				el.nodes = el.nodes.map((node => {
-					return this.render(node);
+					var o, n;
+					[o, n] = this.render(node, form ?? el.name)
+					if (node.name) this.forms[form ?? el.name].elements[node.name] = o;
+					return n;
 				}));
 			}
 		}
-
 		const elType = eval(el.type);
 		let elem = new elType(el).render();
 		return elem;

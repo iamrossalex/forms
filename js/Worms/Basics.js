@@ -24,4 +24,8 @@ export default class Basics {
 			return value;
 		});
 	}
+	release() {
+		this.target.remove();
+		delete this;
+	}
 }

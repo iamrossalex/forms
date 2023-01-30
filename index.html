@@ -15,71 +15,79 @@
 
 	<script type="module">
 		import {Worms} from "./js/Worms/Worms.js";
-		var forms = new Worms([
-			{
-				name: "first",
-				type: "Form",
-				target: "#targetForm",
-				opts: {
-					action: "info.php",
-					method: "POST",
-					enctype: "multipart/form-data",
-					submit: [
+		var forms = new Worms();
+		forms.create({
+			name: "first",
+			type: "Form",
+			target: "#targetForm",
+			opts: {
+				action: "info.php",
+				method: "POST",
+				enctype: "multipart/form-data",
+				submit: [
+					{
+						before: () => {
+							console.log("before");
+						},
+						after: () => {
+							console.log("after");
+						}
+					}
+				],
+			},
+			nodes: [
+				{
+					type: "Column",
+					data: {
+						"title": "My form layout"
+					},
+					opts: {
+						layout: "1"
+					},
+					nodes: [
 						{
-							before: () => {
-								console.log("before");
-							},
-							after: () => {
-								console.log("after");
+							name: "text",
+							type: "Text",
+							data: {
+								"title": "Text field demo",
+								"placeholder": "Place your value",
+								"value": "default value"
+							}
+						},
+						{
+							name: "select",
+							type: "Select",
+							data: {
+								"title": "Text field demo",
+								"default": "",
+								"empty": "Select",
+								"values": [
+									{title: "Level 1", "value": "1"},
+									{title: "Level 2", "value": "2"},
+									{title: "Level 3", "value": "3"}
+								]
+							}
+						},
+						{
+							name: "textarea",
+							type: "Textarea",
+							data: {
+								"title": "Text field demo",
+								"placeholder": "Place your value",
+								"value": "default value"
 							}
 						}
-					],
-				},
-				nodes: [
-					{
-						name: "lt1",
-						type: "Column",
-						data: {
-							"title": "My form layout"
-						},
-						opts: {
-							layout: "11"
-						},
-						nodes: [
-							[{
-								name: "lt1",
-								type: "Column",
-								data: {
-									"title": "My form layout"
-								},
-								opts: {
-									layout: "1"
-								},
-								nodes: [
-
-								]
-							}],
-							[]
-						]
-					},
-					{
-						name: "lt1",
-						type: "Column",
-						data: {
-							"title": "My form layout"
-						},
-						opts: {
-							layout: "1"
-						},
-						nodes: [
-
-						]
-					}
-				]
-			}
-		]);
+					]
+				}
+			]
+		});
 		document.querySelector("#submitFirst").addEventListener('click', (ev) => {
 			ev.preventDefault();
+			console.log(document.querySelector("[data-wormfield='text']").val(), document.querySelector("[data-wormfield='text']").disabled());
+			console.log(document.querySelector("[data-wormfield='select']").val(), document.querySelector("[data-wormfield='text']").disabled());
+			console.log(document.querySelector("[data-wormfield='textarea']").val(), document.querySelector("[data-wormfield='text']").disabled());
+
+			console.log(forms.forms);
 		});
 	</script>
 </body>
