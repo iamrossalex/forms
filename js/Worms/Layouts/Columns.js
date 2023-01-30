@@ -1,25 +1,6 @@
-import Element from "../Element.js";
+import Basics from "../Basics.js";
 
-export default class Layout extends Element {
-	layouts = {
-		"1": (el) => {
-			return `<div class="worms__elements-layouts layout-1">
-				<div>
-					${el[0] ?? ''}
-				</div>
-			</div>`;
-		},
-		"11": (el) => {
-			return `<div class="worms__elements-layouts layout-1-1">
-				<div>
-					${el[0] ?? ''}
-				</div>
-				<div>
-					${el[1] ?? ''}
-				</div>
-			</div>`;
-		}
-	}
+export default class Columns extends Basics {
 	constructor(config) {
 		super(config);
 	}

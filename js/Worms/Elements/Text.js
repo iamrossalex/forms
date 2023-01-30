@@ -1,6 +1,6 @@
-import Element from "../Element.js";
+import Basics from "../Basics.js";
 
-export default class Text extends Element {
+export default class Text extends Basics {
 	default = {
 		config: {
 			"id": "lt1",

@@ -1,6 +1,6 @@
-import Element from "../Element.js";
+import Basics from "../Basics.js";
 
-export default class Form extends Element {
+export default class Form extends Basics {
 	constructor(config) {
 		super(config);
 	}

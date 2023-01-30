@@ -1,5 +1,8 @@
 export default class Basics {
-	constructor() {}
+	constructor(config) {
+		super();
+		this.config = config;
+	}
 	dom(str) {
 		var div = document.createElement('div');
 		div.innerHTML = str.trim();
@@ -21,10 +24,5 @@ export default class Basics {
 			}
 			return value;
 		});
-	}
-	stringToDOM(str) {
-		var container = document.createElement("div");
-		container.innerHTML = str;
-		return container.childNodes;
 	}
 }

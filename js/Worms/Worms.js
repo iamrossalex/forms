@@ -1,8 +1,8 @@
 import Basics from "./Basics.js";
 
-import Form from "./Elements/Form.js";
+import Form from "./Layouts/Form.js";
 // import Accordion from "./Elements/Accordion.js";
-import Layout from "./Elements/Layout.js";
+import Columns from "./Layouts/Columns.js";
 // import Steps from "./Elements/Steps.js";
 // import Tabs from "./Elements/Tabs.js";
 // import Group from "./Elements/Group.js";
@@ -44,7 +44,7 @@ import Layout from "./Elements/Layout.js";
  * 7. Code
  */
 
-export class Worms extends Basics {
+export class Worms {
 	forms = {};
 	constructor(forms) {
 		super();
@@ -57,7 +57,7 @@ export class Worms extends Basics {
 		this.forms[form['name']].isRendered = false;
 		this.forms[form['name']].target = document.querySelector(this.forms[form['name']].target);
 		this.forms[form['name']].target.append(
-			...this.stringToDOM(this.render(this.forms[form['name']]))
+			...this.dom(this.render(this.forms[form['name']]))
 		);
 	}
 	render(el) {
