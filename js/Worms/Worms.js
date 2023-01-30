@@ -2,7 +2,7 @@ import Basics from "./Basics.js";
 
 import Form from "./Layouts/Form.js";
 // import Accordion from "./Elements/Accordion.js";
-import Columns from "./Layouts/Columns.js";
+import Column from "./Layouts/Column.js";
 // import Steps from "./Elements/Steps.js";
 // import Tabs from "./Elements/Tabs.js";
 // import Group from "./Elements/Group.js";
