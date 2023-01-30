@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Forms DEMO</title>
+	<link rel="stylesheet" type="text/css" href="css/Worms/Worms.css">
+</head>
+<body>
+	<h1>Worms form</h1>
+	<div id="targetForm"></div>
+	<a href="" id="submitFirst">Submit</a>
+	<div id="log"></div>
+
+	<script type="module">
+		import {Worms} from "./js/Worms/Worms.js";
+		var forms = new Worms([
+			{
+				name: "first",
+				type: "Form",
+				target: "#targetForm",
+				opts: {
+					action: "info.php",
+					method: "POST",
+					enctype: "multipart/form-data",
+					submit: [
+						{
+							before: () => {
+								console.log("before");
+							},
+							after: () => {
+								console.log("after");
+							}
+						}
+					],
+				},
+				nodes: [
+					{
+						name: "lt1",
+						type: "Column",
+						data: {
+							"title": "My form layout"
+						},
+						opts: {
+							layout: "11"
+						},
+						nodes: [
+							[{
+								name: "lt1",
+								type: "Column",
+								data: {
+									"title": "My form layout"
+								},
+								opts: {
+									layout: "1"
+								},
+								nodes: [
+
+								]
+							}],
+							[]
+						]
+					},
+					{
+						name: "lt1",
+						type: "Column",
+						data: {
+							"title": "My form layout"
+						},
+						opts: {
+							layout: "1"
+						},
+						nodes: [
+
+						]
+					}
+				]
+			}
+		]);
+		document.querySelector("#submitFirst").addEventListener('click', (ev) => {
+			ev.preventDefault();
+		});
+	</script>
+</body>
+</html>
