@@ -1,0 +1,19 @@
+:root {
+	--worms-color-shadow: #dddddd;
+	--worms-color-hover: #fafafa;
+	--worms-color-border: #dddddd;
+	--worms-color-success: #00ff00;
+	--worms-color-fail: #ff0000;
+
+	--worms-color-text-light: #888888;
+	--worms-color-text: #000000;
+	--worms-color-text-success: #00ff00;
+	--worms-color-text-fail: #ff0000;
+	--worms-color-text-invert: #ffffff;
+
+	--worms-font-text: Helvetica, Roboto, Arial;
+}
+.worms * {
+	box-sizing: border-box;
+	font-family: var(--worms-font-text);
+}
