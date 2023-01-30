@@ -47,7 +47,6 @@ import Column from "./Layouts/Column.js";
 export class Worms {
 	forms = {};
 	constructor(forms) {
-		super();
 		forms.map((form => {
 			this.create(form);
 		}));
@@ -56,24 +55,23 @@ export class Worms {
 		this.forms[form['name']] = form;
 		this.forms[form['name']].isRendered = false;
 		this.forms[form['name']].target = document.querySelector(this.forms[form['name']].target);
-		this.forms[form['name']].target.append(
-			...this.dom(this.render(this.forms[form['name']]))
-		);
+		this.forms[form['name']].target.append(...this.render(this.forms[form['name']]));
 	}
 	render(el) {
 		if (el.nodes.length > 0) {
 			if(Array.isArray(el.nodes[0])) {
 				var nodes = [];
 				for(let i=0; i<el.nodes.length;i++) {
-					el.nodes[i] = el.nodes[i].map((node => {
+					nodes[i] = el.nodes[i].map((node => {
 						return this.render(node);
-					})).join('');
+					}));
 				}
 				el.nodes = nodes;
+				console.log(el.nodes);
 			} else {
 				el.nodes = el.nodes.map((node => {
 					return this.render(node);
-				})).join('');
+				}));
 			}
 		}
 

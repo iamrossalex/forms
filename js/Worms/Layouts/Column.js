@@ -5,26 +5,33 @@ export default class Columns extends Basics {
 		super(config);
 	}
 	render() {
-		var rendered = '';
+		var nodes = '';
 		switch (this.config.opts.layout) {
 			case '1':
-				rendered = `<div class="worms__elements-layouts layout-1">
-					<div>
-						${this.config.nodes}
-					</div>
-				</div>`;
+				var nodes = this.dom(`<div class="worms__elements-layouts layout-1"><div></div></div>`);
+				var el = nodes.querySelector('.worms__elements-layouts > div:nth-child(1)');
+				this.config.nodes.map(nodeList => {
+					[...nodeList].map(node => {
+						el.appendChild(node);
+					})
+				});
 				break;
 			case '11':
-				rendered = `<div class="worms__elements-layouts layout-1-1">
-					<div>
-						${this.config.nodes[0]}
-					</div>
-					<div>
-						${this.config.nodes[1]}
-					</div>
-				</div>`;
+				nodes = this.dom(`<div class="worms__elements-layouts layout-1-1"><div></div><div></div></div>`);
+				var el = nodes.querySelector('.worms__elements-layouts > div:nth-child(1)');
+				this.config.nodes[0].map(nodeList => {
+					[...nodeList].map(node => {
+						el.appendChild(node);
+					})
+				});
+				var el = nodes.querySelector('.worms__elements-layouts > div:nth-child(1)');
+				this.config.nodes[1].map(nodeList => {
+					[...nodeList].map(node => {
+						el.appendChild(node);
+					})
+				});
 				break;
 		}
-		return rendered;
+		return nodes.childNodes;
 	}
 }

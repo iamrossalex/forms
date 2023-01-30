@@ -1,12 +1,11 @@
 export default class Basics {
 	constructor(config) {
-		super();
 		this.config = config;
 	}
 	dom(str) {
 		var div = document.createElement('div');
 		div.innerHTML = str.trim();
-		return div.childNodes;
+		return div;
 	}
 	jsn2obj(jsonString) {
 		return JSON.parse(jsonString, function(key, value) {

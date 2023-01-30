@@ -43,6 +43,32 @@
 							"title": "My form layout"
 						},
 						opts: {
+							layout: "11"
+						},
+						nodes: [
+							[{
+								name: "lt1",
+								type: "Column",
+								data: {
+									"title": "My form layout"
+								},
+								opts: {
+									layout: "1"
+								},
+								nodes: [
+
+								]
+							}],
+							[]
+						]
+					},
+					{
+						name: "lt1",
+						type: "Column",
+						data: {
+							"title": "My form layout"
+						},
+						opts: {
 							layout: "1"
 						},
 						nodes: [
@@ -52,6 +78,9 @@
 				]
 			}
 		]);
+		document.querySelector("#submitFirst").addEventListener('click', (ev) => {
+			ev.preventDefault();
+		});
 	</script>
 </body>
 </html>
