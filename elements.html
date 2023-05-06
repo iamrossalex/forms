@@ -5,183 +5,147 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Forms DEMO</title>
-	<link rel="stylesheet" type="text/css" href="/css/Worms/Elements.css">
+	<link rel="stylesheet" type="text/css" href="/css/Worms/Worms.css">
+	<style>
+		.list {
+			list-style: none;
+			padding: 0;
+		}
+		.list li {
+			padding: .2rem;
+			position: relative;
+			padding-left: 2rem;
+		}
+		.list li:before {
+			content: attr(data-value);
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			top: 0.2rem;
+			width: 2rem;
+			font-family: monospace;
+		}
+	</style>
 </head>
 <body>
-	<h1>Prerendered Form Elements</h1>
-	<div id="form-container-legacy" role="Form" class="worms">
-		<div class="worms__elements-layouts layout-1-1">
+	<h1>Form Elements</h1>
+	<ul class="list">
+		<li data-value="[x]"><a href="">Layouts</a></li>
+		<li data-value="[x]"><a href="">Input</a></li>
+		<li data-value="[x]"><a href="">Select</a></li>
+		<li data-value="[ ]"><a href="">Checkbox/Radio group</a></li>
+		<li data-value="[ ]"><a href="">Thumbler</a></li>
+		<li data-value="[ ]"><a href="">Buttons Group</a></li>
+		<li data-value="[x]"><a href="">Textarea</a></li>
+		<li data-value="[ ]"><a href="">EditorJS</a></li>
+		<li data-value="[ ]"><a href="">CodeMirror</a></li>
+		<li data-value="[ ]"><a href="">Images</a></li>
+	</ul>
+
+
+	<div id="form-container-legacy" class="worms">
+		<div class="worms--layouts layout-1-1">
 			<div>
-				<div class="worms__elements-layouts layout-1-1">
-					<div>Layout 50% / 50%</div>
-					<div>Layout 50% / 50%</div>
-				</div>
-			</div>
-			<div>Layout 50%</div>
-		</div>
-
-
-		<!-- text :: begin -->
-		<div class="worms__elements-text top">
-			<label class="text__label required" for="">Text</label>
-			<div class="text__container">
-				<div class="text__container-glif glif__left">
-					<svg version="1.1" viewBox="0 0 752 752" xmlns="http://www.w3.org/2000/svg">
-						<g fill-rule="evenodd">
-						 <path d="m474.66 277.34c0 54.488-44.172 98.66-98.664 98.66-54.488 0-98.66-44.172-98.66-98.66 0-54.492 44.172-98.664 98.66-98.664 54.492 0 98.664 44.172 98.664 98.664zm-39.465 0c0 32.691-26.504 59.195-59.199 59.195s-59.195-26.504-59.195-59.195c0-32.695 26.5-59.199 59.195-59.199s59.199 26.504 59.199 59.199z"/>
-						 <path d="m178.68 514.13c0-65.387 53.008-118.39 118.39-118.39h157.86c65.391 0 118.4 53.008 118.4 118.39 0 32.695-26.504 59.199-59.199 59.199h-276.25c-32.695 0-59.199-26.504-59.199-59.199zm39.465 0c0-43.59 35.34-78.93 78.93-78.93h157.86c43.594 0 78.934 35.34 78.934 78.93 0 10.898-8.8359 19.734-19.734 19.734h-276.25c-10.898 0-19.734-8.8359-19.734-19.734z"/>
-						</g>
-					</svg>
-				</div>
-				<div class="text__container-glif glif__right">
-					<svg viewBox="0 0 752 752" xmlns="http://www.w3.org/2000/svg">
-						<path d="m249.17 334.34-16.281 9.4727 4.7344 8.2891 8.4336 14.504h-26.344v18.941h26.344l-8.4336 14.504-4.7344 8.1406 16.281 9.4727 4.7344-8.1406 8.4375-14.652 8.4336 14.652 4.7344 8.1406 16.281-9.4727-4.7344-8.1406-8.4375-14.504h26.344v-18.941h-26.344l8.4375-14.504 4.7344-8.2891-16.281-9.4727-4.7344 8.2891-8.4336 14.652-8.4375-14.652zm113.66 0-16.281 9.4727 4.7344 8.2891 8.4336 14.504h-26.344v18.941h26.344l-8.4336 14.504-4.7344 8.1406 16.281 9.4727 4.7344-8.1406 8.4375-14.652 8.4336 14.652 4.7344 8.1406 16.281-9.4727-4.7344-8.1406-8.4375-14.504h26.344v-18.941h-26.344l8.4375-14.504 4.7344-8.2891-16.281-9.4727-4.7344 8.2891-8.4336 14.652-8.4375-14.652zm113.66 0-16.281 9.4727 4.7344 8.2891 8.4336 14.504h-26.344v18.941h26.344l-8.4336 14.504-4.7344 8.1406 16.281 9.4727 4.7344-8.1406 8.4375-14.652 8.4336 14.652 4.7344 8.1406 16.281-9.4727-4.7344-8.1406-8.4375-14.504h26.344v-18.941h-26.344l8.4375-14.504 4.7344-8.2891-16.281-9.4727-4.7344 8.2891-8.4336 14.652-8.4375-14.652z"/>
-					</svg>
-				</div>
-				<div class="text__container-indicator fail"><span></span></div>
-				<input type="text" placeholder="Enter text here" value="">
-				<div class="text__container-errormessage visible">What a fuck is this?</div>
-			</div>
-		</div>
-		<!-- text :: end -->
-
-		<!-- select :: begin -->
-		<div class="worms__elements-select top">
-			<label class="select__label required" for="">Select</label>
-			<div class="select__container">
-				<div class="select__container-glif glif__right">
-					<svg version="1.1" viewBox="0 0 752 752" xmlns="http://www.w3.org/2000/svg">
-						<defs>
-							<clipPath id="a">
-								<path d="m139.21 245h473.58v262h-473.58z"/>
-							</clipPath>
-						</defs>
-						<g clip-path="url(#a)">
-							<path d="m376 506.88c-6.3867 0-12.773-2.4375-17.648-7.3125l-211.83-211.83c-9.75-9.75-9.75-25.551 0-35.301s25.551-9.75 35.301 0l194.18 194.18 194.18-194.18c9.75-9.75 25.551-9.75 35.301 0s9.75 25.551 0 35.301l-211.83 211.83c-4.8789 4.8789-11.262 7.3125-17.652 7.3125z"/>
-						</g>
-					</svg>
-				</div>
-				<div class="select__container-indicator success"><span></span></div>
-				<div class="select__container-field">Option 2</div>
-				<div class="select__container-dropdown">
-					<div class="dropdown__container">
-						<div class="dropdown__container-option option__null">--  Not selected --</div>
-						<div class="dropdown__container-option option__title" data-value="Values">Options</div>
-						<div class="dropdown__container-option option__value" data-value="Value 1">Option 1</div>
-						<div class="dropdown__container-option option__selected" data-value="Value 2">Option 2</div>
-						<div class="dropdown__container-option" data-value="Value 3">Option 3</div>
-						<div class="dropdown__container-option" data-value="Value 4">Option 4</div>
-						<div class="dropdown__container-option" data-value="Value 5">Option 5</div>
+				<div class="worms--elements worms--elements-text required">
+					<label class="worms--elements-text-label" for="">Text</label>
+					<div class="worms--elements-text-container">
+						<div class="worms--elements-text-container-glif left">
+							<img src="svg/1.svg" alt="">
+						</div>
+						<div class="worms--elements-text-container-glif right">
+							<img src="svg/2.svg" alt="">
+						</div>
+						<input name="" id="" type="text" placeholder="Enter text here" value="">
 					</div>
+					<div class="worms--elements-text-error">What a fuck is this?</div>
 				</div>
-				<div class="select__container-errormessage visible">What a fuck is this?</div>
-			</div>
-		</div>
-		<!-- select :: end -->
-
-		<!-- check :: begin -->
-		<div class="worms__elements-check top">
-			<label class="check__label required" for="">Check</label>
-			<div class="check__container">
-
-			</div>
-		</div>
-		<!-- check :: end -->
-
-		<!-- radio :: begin -->
-		<div class="worms__elements-radio top">
-			<label class="radio__label required" for="">Radio</label>
-			<div class="radio__container">
-
-			</div>
-		</div>
-		<!-- radio :: end -->
-
-		<!-- CKEditor :: begin -->
-		<div class="worms__elements-ckeditor top">
-			<label class="editor__label required" for="">CK Editor</label>
-			<div class="editor__container">
-				<div class="editor__container-indicator fail"><span></span></div>
-				<div class="editor__container-ckeditor">
-					<div></div>
+				<div class="worms--elements worms--elements-text">
+					<label class="worms--elements-text-label" for="">Text Area</label>
+					<div class="worms--elements-text-container">
+						<div class="worms--elements-text-container-glif left">
+							<img src="svg/1.svg" alt="">
+						</div>
+						<textarea name="" id="" placeholder="Enter text here"></textarea>
+					</div>
+					<div class="worms--elements-text-error">What a fuck is this?</div>
 				</div>
-				<div class="editor__container-errormessage visible">What a fuck is this?</div>
+				<div class="worms--elements worms--elements-select required error">
+					<label class="worms--elements-select-label required" for="">Select</label>
+					<div class="worms--elements-select-container">
+						<div class="worms--elements-select-container-glif left">
+							<img src="svg/1.svg" alt="">
+						</div>
+						<select name="" id="">
+							<option value="" selected>-- Select --</option>
+							<optgroup label="Group">
+								<option value="">Value 1</option>
+								<option value="">Value 2</option>
+								<option value="">Value 3</option>
+							</optgroup>
+						</select>
+						<div class="worms--elements-select-indicator"></div>
+					</div>
+					<div class="worms--elements-select-error">What a fuck is this?</div>
+				</div>
+			</div>
+			<div>
+				<div class="worms--elements worms--elements-selectable required ">
+					<label class="worms--elements-selectable-label" for="">Selectables</label>
+					<div class="worms--elements-selectable-container">
+						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
+					</div>
+					<div class="worms--elements-selectable-error">What a fuck is this?</div>
+				</div>
+				<div class="worms--elements worms--elements-selectable required ">
+					<label class="worms--elements-selectable-label" for="">Selectables</label>
+					<div class="worms--elements-selectable-container">
+						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
+					</div>
+					<div class="worms--elements-selectable-error">What a fuck is this?</div>
+				</div>
 			</div>
 		</div>
-		<!-- CKEditor :: end -->
 
 		<!-- EditorJS :: begin -->
-		<div class="worms__elements-editorjs top">
-			<label class="editor__label required" for="">Editor JS</label>
-			<div class="editor__container">
-				<div class="editor__container-indicator fail"><span></span></div>
-				<div class="editor__container-editorjs">
-					<div id="editorjs1"></div>
+		<div class="worms--elements-editorjs top">
+			<label class="editor--label required" for="">Editor JS</label>
+			<div class="editor--container">
+				<div class="editor--container-indicator fail"><span></span></div>
+				<div id="editorjs1" class="editor--container-editorjs">
 				</div>
-				<div class="editor__container-errormessage visible">What a fuck is this?</div>
+				<div class="editor--container-errormessage visible">What a fuck is this?</div>
 			</div>
 		</div>
 		<!-- EditorJS :: end -->
 
 		<!-- image :: begin -->
-		<div class="worms__elements-image top">
-			<label class="image__label required" for="">Image</label>
-			<div class="image__container">
+		<div class="worms--elements-image top">
+			<label class="image--label required" for="">Image</label>
+			<div class="image--container">
 
 			</div>
 		</div>
 		<!-- image :: end -->
 
 		<!-- gallery :: begin -->
-		<div class="worms__elements-image top">
-			<label class="image__label required" for="">Gallery</label>
-			<div class="image__container">
+		<div class="worms--elements-image top">
+			<label class="image--label required" for="">Gallery</label>
+			<div class="image--container">
 
 			</div>
 		</div>
 		<!-- gallery :: end -->
 	</div>
-
-	<script src="js/ckeditor/ckeditor.js"></script>
-	<script>
-		BalloonBlockEditor
-			.create( document.querySelector( '.editor__container-ckeditor > div' ), {
-				licenseKey: '',
-				image: {
-					resizeOptions: [
-						{
-							name: 'resizeImage:original',
-							value: null,
-							icon: 'original'
-						},
-						{
-							name: 'resizeImage:75',
-							value: '75',
-							icon: 'medium'
-						},
-						{
-							name: 'resizeImage:100',
-							value: '100',
-							icon: 'large'
-						}
-					],
-					toolbar: [
-						'resizeImage:75',
-						'resizeImage:100',
-						'resizeImage:original',
-					]
-				}
-			})
-			.then( editor => {
-				window.editor = editor;
-			} )
-			.catch( error => {
-				console.error( 'Oops, something went wrong!' );
-				console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
-				console.warn( 'Build id: 8imv5de3ave9-y0tjfcfy5ukf' );
-				console.error( error );
-			} );
-	</script>
 
 	<script src="js/editorjs/Editor.js"></script>
 	<script src="js/editorjs/tools/Header.js"></script>
