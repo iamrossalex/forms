@@ -92,24 +92,16 @@
 				<div class="worms--elements worms--elements-selectable required ">
 					<label class="worms--elements-selectable-label" for="">Selectables</label>
 					<div class="worms--elements-selectable-container">
-						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
-						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
-						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
-						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
-						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
-						<label class="worms--elements-selectable-item checkbox">First checkbox<input type="checkbox" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item checkbox">Value<input type="checkbox" value="Value" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item checkbox">Another<input type="checkbox" value="Another" /><div class="worms--elements-selectable-item-indicator"></div></label>
 					</div>
 					<div class="worms--elements-selectable-error">What a fuck is this?</div>
 				</div>
 				<div class="worms--elements worms--elements-selectable required ">
 					<label class="worms--elements-selectable-label" for="">Selectables</label>
 					<div class="worms--elements-selectable-container">
-						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
-						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
-						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
-						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
-						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
-						<label class="worms--elements-selectable-item radio">First checkbox<input type="radio" name="radiogroup1[]" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item radio">Variant<input type="radio" name="radiogroup1[]" value="Variant" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item radio">More<input type="radio" name="radiogroup1[]" value="More" /><div class="worms--elements-selectable-item-indicator"></div></label>
 					</div>
 					<div class="worms--elements-selectable-error">What a fuck is this?</div>
 				</div>
@@ -117,34 +109,23 @@
 		</div>
 
 		<!-- EditorJS :: begin -->
-		<div class="worms--elements-editorjs top">
-			<label class="editor--label required" for="">Editor JS</label>
-			<div class="editor--container">
-				<div class="editor--container-indicator fail"><span></span></div>
-				<div id="editorjs1" class="editor--container-editorjs">
-				</div>
-				<div class="editor--container-errormessage visible">What a fuck is this?</div>
+		<div class="worms--elements-editorjs required">
+			<label class="worms--elements-editorjs-label" for="">Editor JS</label>
+			<div class="worms--elements-editorjs-container">
+				<div id="editorjs1" class="worms--elements-editorjs-indicator"></div>
 			</div>
+			<div class="worms--elements-editorjs-error">What a fuck is this?</div>
 		</div>
 		<!-- EditorJS :: end -->
 
 		<!-- image :: begin -->
-		<div class="worms--elements-image top">
+		<div class="worms--elements-image">
 			<label class="image--label required" for="">Image</label>
 			<div class="image--container">
 
 			</div>
 		</div>
 		<!-- image :: end -->
-
-		<!-- gallery :: begin -->
-		<div class="worms--elements-image top">
-			<label class="image--label required" for="">Gallery</label>
-			<div class="image--container">
-
-			</div>
-		</div>
-		<!-- gallery :: end -->
 	</div>
 
 	<script src="js/editorjs/Editor.js"></script>
@@ -153,7 +134,7 @@
 	<script src="js/editorjs/tools/RawTool.js"></script>
 	<script src="js/editorjs/tools/SimpleImage.js"></script>
 	<script src="js/editorjs/tools/ImageTool.js"></script>
-	<script src="js/editorjs/tools/Checklist.js"></script>
+	<!-- <script src="js/editorjs/tools/Checklist.js"></script> -->
 	<script src="js/editorjs/tools/List.js"></script>
 	<script src="js/editorjs/tools/Embed.js"></script>
 	<script src="js/editorjs/tools/Quote.js"></script>
@@ -167,7 +148,7 @@
 				raw: RawTool,
 				image: ImageTool,
 				simpleImage: SimpleImage,
-				checklist: Checklist,
+				// checklist: Checklist,
 				list: List,
 				embed: Embed,
 				quote: Quote,
