@@ -344,3 +344,98 @@
 	font-size: .8rem;
 }
 .worms--elements-editorjs.error .worms--elements-editorjs-error {display: block;}
+
+
+
+/* Images */
+.worms--elements-image-label {
+	display: block;
+	padding: .4rem 0;
+}
+.worms--elements-image.required .worms--elements-image-label {
+	font-weight: 700;
+}
+.worms--elements-image.required .worms--elements-image-label {
+	font-weight: 700;
+}
+.worms--elements-image.required .worms--elements-image-label:after {
+	content: " *";
+	color: var(--worms-color-fail);
+	font-weight: 700;
+}
+.worms--elements-image-container {
+	position: relative;
+	border: var(--px, 1px) solid var(--worms-color-border);
+	padding: 1rem;
+}
+.worms--elements-image-error {
+	display: none;
+	color: var(--worms-color-fail);
+	font-size: .8rem;
+}
+.worms--elements-image.error .worms--elements-image-error {display: block;}
+.worms--elements-image-list {
+	display: flex;
+	overflow: hidden;
+	transform: translate(0, -2rem);
+	width: 100%;
+}
+.worms--elements-image-items {
+	transform: translate(0, 2rem);
+	scroll-snap-align: start;
+	display: flex;
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+	padding: 0 0 2rem 0;
+	gap: 2rem;
+	scroll-padding: 0;
+}
+.worms--elements-image-item {
+	flex: 0 0 100%;
+	display:flex;
+	flex-direction: column;
+	transition: all 0.1s linear;
+	scroll-snap-align: start;
+	border: var(--px, 1px) solid var(--worms-color-border);
+}
+.worms--elements-image-item > div:nth-child(1) {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+}
+.worms--elements-image-item > div:nth-child(1) img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.worms--elements-image-item > div:nth-child(2) {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	background-color: var(--worms-color-hover);
+	padding: 1rem 0;
+}
+.worms--elements-image-item > div:nth-child(2) a {
+	font-size: .8rem;
+	text-decoration: none;
+	color: var(--worms-color-text);
+	text-transform: uppercase;
+}
+.worms--elements-image-nav {
+	position: absolute;
+	z-index: 1;
+	height: 4rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	bottom: 0;
+	left: 0;
+	padding: 0 1rem;
+}
+.worms--elements-image-nav > div:nth-child(1) a,
+.worms--elements-image-nav > div:nth-child(3) a {
+	font-size: 2rem;
+	text-decoration: none;
+	color: var(--worms-color-text);
+	text-transform: uppercase;
+}

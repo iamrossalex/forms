@@ -7,6 +7,9 @@
 	<title>Forms DEMO</title>
 	<link rel="stylesheet" type="text/css" href="/css/Worms/Worms.css">
 	<style>
+		* {
+			box-sizing: border-box;
+		}
 		.list {
 			list-style: none;
 			padding: 0;
@@ -87,6 +90,13 @@
 					</div>
 					<div class="worms--elements-select-error">What a fuck is this?</div>
 				</div>
+				<div class="worms--elements-editorjs required">
+					<label class="worms--elements-editorjs-label" for="">Editor JS</label>
+					<div class="worms--elements-editorjs-container">
+						<div id="editorjs1" class="worms--elements-editorjs-indicator"></div>
+					</div>
+					<div class="worms--elements-editorjs-error">What a fuck is this?</div>
+				</div>
 			</div>
 			<div>
 				<div class="worms--elements worms--elements-selectable required ">
@@ -105,26 +115,54 @@
 					</div>
 					<div class="worms--elements-selectable-error">What a fuck is this?</div>
 				</div>
+				<div class="worms--elements-image required">
+					<label class="worms--elements-image-label" for="">Image</label>
+					<div class="worms--elements-image-container">
+						<div class="worms--elements-image-list">
+							<div class="worms--elements-image-items">
+								<div class="worms--elements-image-item">
+									<div><img src="https://images.unsplash.com/photo-1683360467368-45591bbccaeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""></div>
+									<div>
+										<a href="">left</a>
+										<a href="">delete</a>
+										<a href="">right</a>
+									</div>
+								</div>
+								<div class="worms--elements-image-item">
+									<div><img src="https://images.unsplash.com/photo-1683217617813-9c77d57028f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""></div>
+									<div>
+										<a href="">left</a>
+										<a href="">delete</a>
+										<a href="">right</a>
+									</div>
+								</div>
+								<div class="worms--elements-image-item">
+									<div><img src="https://images.unsplash.com/photo-1683217617813-9c77d57028f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""></div>
+									<div>
+										<a href="">left</a>
+										<a href="">delete</a>
+										<a href="">right</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="worms--elements-image-nav">
+							<div><a href="">&lt;</a></div>
+							<div>
+
+							</div>
+							<div><a href="">&gt;</a></div>
+						</div>
+					</div>
+					<div class="worms--elements-image-error">What a fuck is this?</div>
+				</div>
 			</div>
 		</div>
 
 		<!-- EditorJS :: begin -->
-		<div class="worms--elements-editorjs required">
-			<label class="worms--elements-editorjs-label" for="">Editor JS</label>
-			<div class="worms--elements-editorjs-container">
-				<div id="editorjs1" class="worms--elements-editorjs-indicator"></div>
-			</div>
-			<div class="worms--elements-editorjs-error">What a fuck is this?</div>
-		</div>
 		<!-- EditorJS :: end -->
 
 		<!-- image :: begin -->
-		<div class="worms--elements-image">
-			<label class="image--label required" for="">Image</label>
-			<div class="image--container">
-
-			</div>
-		</div>
 		<!-- image :: end -->
 	</div>
 
@@ -142,6 +180,7 @@
 	<script type="module">
 		const editor = new EditorJS({
 			holder: 'editorjs1',
+			placeholder: 'Start typing here...',
 			tools: {
 				header: Header,
 				linkTool: LinkTool,
