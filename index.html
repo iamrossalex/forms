@@ -6,88 +6,209 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Forms DEMO</title>
 	<link rel="stylesheet" type="text/css" href="css/Worms/Worms.css">
+	<script src="js/editorjs/Editor.js"></script>
+	<script src="js/editorjs/tools/Header.js"></script>
+	<script src="js/editorjs/tools/LinkTool.js"></script>
+	<script src="js/editorjs/tools/RawTool.js"></script>
+	<script src="js/editorjs/tools/SimpleImage.js"></script>
+	<script src="js/editorjs/tools/ImageTool.js"></script>
+	<script src="js/editorjs/tools/List.js"></script>
+	<script src="js/editorjs/tools/Embed.js"></script>
+	<script src="js/editorjs/tools/Quote.js"></script>
+	<script src="js/editorjs/tools/Table.js"></script>
+	<script src="js/editorjs/tools/CodeTool.js"></script>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		#targetForm {
+			margin-bottom: 3rem;
+		}
+		#submitFirst {
+			display: inline-block;
+			text-decoration: none;
+			border: var(--px, 1px) solid #eeeeee;
+			padding: .8rem 1.5rem;
+		}
+		#submitFirst:hover {
+			background-color: #cccccc;
+		}
+	</style>
 </head>
 <body>
 	<h1>Worms form</h1>
 	<div id="targetForm"></div>
-	<a href="" id="submitFirst">Submit</a>
+	<div><a href="" id="submitFirst">Submit</a></div>
 	<div id="log"></div>
 
 	<script type="module">
 		import {Worms} from "./js/Worms/Worms.js";
-		var forms = new Worms();
-		forms.create({
-			name: "first",
-			type: "Form",
+		document.querySelector("#submitFirst").worm = new Worms({
 			target: "#targetForm",
-			opts: {
-				action: "info.php",
-				method: "POST",
-				enctype: "multipart/form-data",
-				submit: [
-					{
-						before: () => {
-							console.log("before");
-						},
-						after: () => {
-							console.log("after");
-						}
-					}
-				],
+			action: "info.php",
+			method: "POST",
+			enctype: "multipart/form-data",
+			events: {
+				submit: (values) => {
+					console.log(values);
+				}
 			},
 			nodes: [
 				{
-					type: "Column",
-					data: {
-						"title": "My form layout"
-					},
-					opts: {
-						layout: "1"
-					},
+					type: "Layouts",
+					name: "mainLayout",
+					layout: 12,
 					nodes: [
-						{
-							name: "text",
-							type: "Text",
-							data: {
-								"title": "Text field demo",
-								"placeholder": "Place your value",
-								"value": "default value"
-							}
-						},
-						{
-							name: "select",
-							type: "Select",
-							data: {
-								"title": "Text field demo",
-								"default": "",
-								"empty": "Select",
-								"values": [
-									{title: "Level 1", "value": "1"},
-									{title: "Level 2", "value": "2"},
-									{title: "Level 3", "value": "3"}
+						[
+							{
+								name: "images",
+								type: "Images",
+								title: "Images",
+								width: 400,
+								// height: 600,
+								values: [
+									// "https://images.unsplash.com/photo-1550401732-f2615d09b2d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+									// "https://images.unsplash.com/photo-1578853031105-8025ec148ce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80",
+									// "https://images.unsplash.com/photo-1464790719320-516ecd75af6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+									// "https://images.unsplash.com/photo-1564221710304-0b37c8b9d729?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+									// "https://images.unsplash.com/photo-1541777750-47555f6eddaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
 								]
 							}
-						},
-						{
-							name: "textarea",
-							type: "Textarea",
-							data: {
-								"title": "Text field demo",
-								"placeholder": "Place your value",
-								"value": "default value"
+						],
+						[
+							{
+								type: "Tabs",
+								name: "languageTabs",
+								labels: [
+									"Text", "Select", "Selectable", "Editor"
+								],
+								nodes: [
+									[
+										{
+											name: "text",
+											type: "Text",
+											mode: "text",
+											required: true,
+											title: "Text field",
+											placeholder: "",
+											value: ""
+										},
+										{
+											name: "email",
+											type: "Text",
+											mode: "email",
+											required: true,
+											title: "Email",
+											placeholder: "",
+											value: ""
+										},
+										{
+											name: "password",
+											type: "Text",
+											mode: "password",
+											required: true,
+											title: "Password",
+											placeholder: "",
+											value: ""
+										},
+										{
+											name: "date",
+											type: "Text",
+											mode: "date",
+											required: true,
+											title: "Date",
+											placeholder: "",
+											value: ""
+										},
+										{
+											name: "Bio",
+											type: "Text",
+											mode: "textarea",
+											required: true,
+											title: "Your short Bio",
+											placeholder: "Start typing...",
+											value: "https://wacdis.com/.tpl/wacdis-v3/img/logo-dark.png"
+										}
+									],
+									[
+										{
+											name: "selectfield",
+											type: "Select",
+											title: "Select field",
+											placeholder: "Select",
+											values: [
+												{
+													label: "Group",
+													values: [
+														{
+															title: "Option 1",
+															value: "opt-1"
+														},
+														{
+															title: "Option 2",
+															value: "opt-2",
+															checked: true
+														}
+													]
+												}
+											]
+										}
+									],
+									[
+										{
+											name: "selectableradio",
+											type: "Selectable",
+											mode: "radio",
+											title: "Selectable field",
+											values: [
+												{
+													title: "Option 1",
+													value: "opt-1"
+												},
+												{
+													title: "Option 2",
+													value: "opt-2"
+												}
+											]
+										},
+										{
+											name: "selectablecheck",
+											type: "Selectable",
+											mode: "checkbox",
+											title: "Selectable field",
+											values: [
+												{
+													title: "Option 1",
+													value: "opt-1"
+												},
+												{
+													title: "Option 2",
+													value: "opt-2"
+												}
+											]
+										}
+									],
+									[
+										{
+											name: "page",
+											type: "Editor",
+											title: "Full page",
+											placeholder: "Just start typing...",
+											value: '<h1 data-type="header">Text</h1><p data-type="paragraph">Get the first block type</p><ul data-type="list"><li>One</li><li>Two</li><li>Three</li></ul>'
+										}
+									]
+								]
 							}
-						}
+						]
 					]
-				}
+				},
 			]
 		});
-		document.querySelector("#submitFirst").addEventListener('click', (ev) => {
+		document.querySelector("#submitFirst").worm.render();
+		document.querySelector("#submitFirst").addEventListener('click', async (ev) => {
 			ev.preventDefault();
-			console.log(document.querySelector("[data-wormfield='text']").val(), document.querySelector("[data-wormfield='text']").disabled());
-			console.log(document.querySelector("[data-wormfield='select']").val(), document.querySelector("[data-wormfield='text']").disabled());
-			console.log(document.querySelector("[data-wormfield='textarea']").val(), document.querySelector("[data-wormfield='text']").disabled());
-
-			console.log(forms.forms);
+			var values = await ev.currentTarget.worm.retrive();
+			console.log(values);
 		});
 	</script>
 </body>

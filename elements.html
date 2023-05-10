@@ -36,18 +36,18 @@
 		<li data-value="[x]"><a href="">Layouts</a></li>
 		<li data-value="[x]"><a href="">Input</a></li>
 		<li data-value="[x]"><a href="">Select</a></li>
-		<li data-value="[ ]"><a href="">Checkbox/Radio group</a></li>
+		<li data-value="[x]"><a href="">Checkbox/Radio group</a></li>
 		<li data-value="[ ]"><a href="">Thumbler</a></li>
 		<li data-value="[ ]"><a href="">Buttons Group</a></li>
 		<li data-value="[x]"><a href="">Textarea</a></li>
-		<li data-value="[ ]"><a href="">EditorJS</a></li>
+		<li data-value="[x]"><a href="">EditorJS</a></li>
 		<li data-value="[ ]"><a href="">CodeMirror</a></li>
-		<li data-value="[ ]"><a href="">Images</a></li>
+		<li data-value="[x]"><a href="">Images</a></li>
 	</ul>
 
 
 	<div id="form-container-legacy" class="worms">
-		<div class="worms--layouts layout-1-1">
+		<div class="worms--layouts layout-2-1">
 			<div>
 				<div class="worms--elements worms--elements-text required">
 					<label class="worms--elements-text-label" for="">Text</label>
@@ -90,13 +90,6 @@
 					</div>
 					<div class="worms--elements-select-error">What a fuck is this?</div>
 				</div>
-				<div class="worms--elements-editorjs required">
-					<label class="worms--elements-editorjs-label" for="">Editor JS</label>
-					<div class="worms--elements-editorjs-container">
-						<div id="editorjs1" class="worms--elements-editorjs-indicator"></div>
-					</div>
-					<div class="worms--elements-editorjs-error">What a fuck is this?</div>
-				</div>
 			</div>
 			<div>
 				<div class="worms--elements worms--elements-selectable required ">
@@ -110,8 +103,8 @@
 				<div class="worms--elements worms--elements-selectable required ">
 					<label class="worms--elements-selectable-label" for="">Selectables</label>
 					<div class="worms--elements-selectable-container">
-						<label class="worms--elements-selectable-item radio">Variant<input type="radio" name="radiogroup1[]" value="Variant" /><div class="worms--elements-selectable-item-indicator"></div></label>
-						<label class="worms--elements-selectable-item radio">More<input type="radio" name="radiogroup1[]" value="More" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item radio">Variant<input type="radio" name="radiogroup1" value="Variant" /><div class="worms--elements-selectable-item-indicator"></div></label>
+						<label class="worms--elements-selectable-item radio">More<input type="radio" name="radiogroup1" value="More" /><div class="worms--elements-selectable-item-indicator"></div></label>
 					</div>
 					<div class="worms--elements-selectable-error">What a fuck is this?</div>
 				</div>
@@ -154,16 +147,34 @@
 							<div><a href="">&gt;</a></div>
 						</div>
 					</div>
-					<div class="worms--elements-image-error">What a fuck is this?</div>
+					<div class="worms--elements-image-error"></div>
 				</div>
 			</div>
 		</div>
-
-		<!-- EditorJS :: begin -->
-		<!-- EditorJS :: end -->
-
-		<!-- image :: begin -->
-		<!-- image :: end -->
+		<div class="worms--tabs">
+			<div class="worms--tabs-labels">
+				<label class="worms--tabs-label active">Tab 1</label>
+				<label class="worms--tabs-label">Tab 2</label>
+				<label class="worms--tabs-label" disabled>Tab 3</label>
+			</div>
+			<div class="worms--tabs-items">
+				<div class="worms--tabs-item active">
+					<div class="worms--elements-editorjs required">
+						<label class="worms--elements-editorjs-label" for="">Editor JS</label>
+						<div class="worms--elements-editorjs-container">
+							<div id="editorjs1" class="worms--elements-editorjs-indicator"></div>
+						</div>
+						<div class="worms--elements-editorjs-error">What a fuck is this?</div>
+					</div>
+				</div>
+				<div class="worms--tabs-item">
+					Content 2
+				</div>
+				<div class="worms--tabs-item">
+					Content 3
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<script src="js/editorjs/Editor.js"></script>
@@ -172,7 +183,6 @@
 	<script src="js/editorjs/tools/RawTool.js"></script>
 	<script src="js/editorjs/tools/SimpleImage.js"></script>
 	<script src="js/editorjs/tools/ImageTool.js"></script>
-	<!-- <script src="js/editorjs/tools/Checklist.js"></script> -->
 	<script src="js/editorjs/tools/List.js"></script>
 	<script src="js/editorjs/tools/Embed.js"></script>
 	<script src="js/editorjs/tools/Quote.js"></script>
@@ -187,7 +197,6 @@
 				raw: RawTool,
 				image: ImageTool,
 				simpleImage: SimpleImage,
-				// checklist: Checklist,
 				list: List,
 				embed: Embed,
 				quote: Quote,

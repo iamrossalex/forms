@@ -5,34 +5,74 @@
 	--worms-color-success: #00ff00;
 	--worms-color-fail: #ff0000;
 
-	--worms-color-text-light: #888888;
+	--worms-color-text-light: #aaaaaa;
 	--worms-color-text: #000000;
 	--worms-color-text-success: #00ff00;
 	--worms-color-text-fail: #ff0000;
 	--worms-color-text-invert: #ffffff;
 }
-.worms * {
-	box-sizing: border-box;
-}
 
 
 
-/* Label */
-.worms .worms--layouts {
+/* Layouts */
+.worms--layouts {
 	display: flex;
 	flex-wrap: wrap;
-	column-gap: 1rem;
+	gap: 1rem;
 }
-.worms .worms--layouts > div {
+.worms--layouts > div {
 	row-gap: 1rem;
 }
-.worms .worms--layouts > div {width: 100%;}
-.worms .worms--layouts.layout-1-1 > div {width: calc(50% - .5rem);}
-.worms .worms--layouts.layout-2-1 > div:nth-child(1) {width: calc(66.6666% - .5rem);}
-.worms .worms--layouts.layout-2-1 > div:nth-child(2) {width: calc(33.3333% - .5rem);}
-.worms .worms--layouts.layout-1-2 > div:nth-child(1) {width: calc(33.3333% - .5rem);}
-.worms .worms--layouts.layout-1-2 > div:nth-child(2) {width: calc(66.6666% - .5rem);}
+.worms--layouts > div {width: 100%;}
+.worms--layouts.layout-1-1 > div {width: calc(50% - .5rem);}
+.worms--layouts.layout-2-1 > div:nth-child(1) {width: calc(66.6666% - .5rem);}
+.worms--layouts.layout-2-1 > div:nth-child(2) {width: calc(33.3333% - .5rem);}
+.worms--layouts.layout-1-2 > div:nth-child(1) {width: calc(33.3333% - .5rem);}
+.worms--layouts.layout-1-2 > div:nth-child(2) {width: calc(66.6666% - .5rem);}
+@media (max-width: 767px) {
+.worms--layouts.layout-1-1 > div {width: 100%;}
+.worms--layouts.layout-2-1 > div:nth-child(1) {width: 100%;}
+.worms--layouts.layout-2-1 > div:nth-child(2) {width: 100%;}
+.worms--layouts.layout-1-2 > div:nth-child(1) {width: 100%;}
+.worms--layouts.layout-1-2 > div:nth-child(2) {width: 100%;}
 
+}
+
+
+/* Tabs */
+.worms--tabs {}
+.worms--tabs-labels {
+	display: flex;
+	border-bottom: var(--px, 1px) solid var(--worms-color-border);
+}
+.worms--tabs-label {
+	padding: .8rem 1.5rem;
+	font-weight: 700;
+	border-bottom: .15rem solid transparent;
+	color: var(--worms-color-text-light);
+	cursor: pointer;
+}
+.worms--tabs-label.active {
+	border-color: var(--worms-color-text-light);
+	color: var(--worms-color-text);
+	cursor: default;
+}
+.worms--tabs-label[disabled] {
+	border-color: transparent;
+	color: var(--worms-color-border);
+	pointer-events: none;
+	cursor: not-allowed;
+}
+.worms--tabs-items {
+	padding-top: 1rem;
+}
+.worms--tabs-item {}
+.worms--tabs-item {
+	display:none;
+}
+.worms--tabs-item.active {
+	display: block;
+}
 
 
 /* Elements */
@@ -384,11 +424,12 @@
 	transform: translate(0, 2rem);
 	scroll-snap-align: start;
 	display: flex;
-	overflow-x: scroll;
+	overflow: scroll hidden;
 	scroll-snap-type: x mandatory;
 	padding: 0 0 2rem 0;
 	gap: 2rem;
 	scroll-padding: 0;
+	width: 100%;
 }
 .worms--elements-image-item {
 	flex: 0 0 100%;
@@ -400,25 +441,29 @@
 }
 .worms--elements-image-item > div:nth-child(1) {
 	width: 100%;
-	aspect-ratio: 1 / 1;
 }
 .worms--elements-image-item > div:nth-child(1) img {
 	width: 100%;
-	height: 100%;
 	object-fit: cover;
+	aspect-ratio: 1 / 1;
 }
 .worms--elements-image-item > div:nth-child(2) {
 	display: flex;
-	gap: 1rem;
+	gap: 2rem;
 	justify-content: center;
 	background-color: var(--worms-color-hover);
 	padding: 1rem 0;
 }
 .worms--elements-image-item > div:nth-child(2) a {
-	font-size: .8rem;
+	display: inline-block;
 	text-decoration: none;
-	color: var(--worms-color-text);
-	text-transform: uppercase;
+}
+.worms--elements-image-item > div:nth-child(2) a svg {
+	fill: var(--worms-color-text);
+	height: 1.5rem;
+}
+.worms--elements-image-item > div:nth-child(2) a:hover svg {
+	fill: var(--worms-color-text-light);
 }
 .worms--elements-image-nav {
 	position: absolute;
@@ -432,10 +477,65 @@
 	left: 0;
 	padding: 0 1rem;
 }
-.worms--elements-image-nav > div:nth-child(1) a,
-.worms--elements-image-nav > div:nth-child(3) a {
-	font-size: 2rem;
+.worms--elements-image-nav > div a,
+.worms--elements-image-nav > div label {
+	display: inline-block;
 	text-decoration: none;
-	color: var(--worms-color-text);
-	text-transform: uppercase;
+}
+.worms--elements-image-nav > div a svg,
+.worms--elements-image-nav > div label svg {
+	fill: var(--worms-color-text);
+	height: 1.5rem;
+}
+.worms--elements-image-nav > div a:hover svg,
+.worms--elements-image-nav > div label:hover svg {
+	fill: var(--worms-color-text-light);
+}
+.worms--elements-image-dropzone {
+	display:none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	padding: 4rem;
+	background-color: #ffffff;
+}
+.worms--elements-image-dropzone.show {
+	display: block;
+    transform: translate(0, 2rem);
+    aspect-ratio: 1 / 1;
+}
+.worms--elements-image-items:empty {display: none;}
+.worms--elements-image-items:empty ~ .worms--elements-image-dropzone {
+	display: block;
+	position: relative;
+    transform: translate(0, 2rem);
+    aspect-ratio: 1 / 1;
+}
+.worms--elements-image-dropzone > input {
+	opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: -10000px;
+}
+.worms--elements-image-dropzone > div {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+	background-color: #fafafa;
+    border: .15rem dashed #ddd;
+    border-radius: .35rem;
+}
+.worms--elements-image-dropzone > div > svg {
+    width: 15%;
+    fill: #aaa;
+}
+.worms--elements-image-dropzone > div > div {
+    color: #aaa;
 }
