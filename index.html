@@ -67,11 +67,11 @@
 								width: 400,
 								// height: 600,
 								values: [
-									// "https://images.unsplash.com/photo-1550401732-f2615d09b2d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-									// "https://images.unsplash.com/photo-1578853031105-8025ec148ce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80",
-									// "https://images.unsplash.com/photo-1464790719320-516ecd75af6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-									// "https://images.unsplash.com/photo-1564221710304-0b37c8b9d729?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-									// "https://images.unsplash.com/photo-1541777750-47555f6eddaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+									"https://images.unsplash.com/photo-1550401732-f2615d09b2d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+									"https://images.unsplash.com/photo-1578853031105-8025ec148ce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80",
+									"https://images.unsplash.com/photo-1464790719320-516ecd75af6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+									"https://images.unsplash.com/photo-1564221710304-0b37c8b9d729?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+									"https://images.unsplash.com/photo-1541777750-47555f6eddaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
 								]
 							}
 						],
@@ -80,7 +80,7 @@
 								type: "Tabs",
 								name: "languageTabs",
 								labels: [
-									"Text", "Select", "Selectable", "Editor"
+									"Text", "Select", "Selectable", "Editor", "Expandable"
 								],
 								nodes: [
 									[
@@ -195,6 +195,16 @@
 											title: "Full page",
 											placeholder: "Just start typing...",
 											value: '<h1 data-type="header">Text</h1><p data-type="paragraph">Get the first block type</p><ul data-type="list"><li>One</li><li>Two</li><li>Three</li></ul>'
+										}
+									],
+									[
+										{
+											name: "exp1",
+											type: "Expandable",
+											title: "Expandable List",
+											nodes: [
+
+											]
 										}
 									]
 								]

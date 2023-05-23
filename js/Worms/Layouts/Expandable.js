@@ -6,20 +6,24 @@ export default class Expandable extends Basics {
 		this.config.contentValue = false;
 	}
 	render() {
-		switch (this.config.layout) {
-			case 11:
-				var layout = "layout-1-1";
-				break;
-			case 12:
-				var layout = "layout-1-2";
-				break;
-			case 21:
-				var layout = "layout-2-1";
-				break;
-		}
-		const nodes = this.dom(`<div class="worms--layouts ${layout ?? ''}"><div></div>${!layout ? '' : '<div></div>'}</div>`);
-		this.object = nodes.querySelector('.worms--layouts');
-		this.target = [...nodes.querySelectorAll('.worms--layouts > div')];
+		this.id = this.gen(4);
+		const nodes = this.dom(`<div class="worms--expandable">
+			<div class="worms--expandable-title">${this.config.title}</div>
+			<div class="worms--expandable-list">
+				<div class="worms--expandable-list-cont">
+					<script type="text/html" id="${this.id}_template">
+
+					</script>
+					<div class="worms--expandable-list-item">
+ 
+					</div>
+				</div>
+				<a href="" class="worms--expandable-list-new">+ New</a>
+			</div>
+		</div>`);
+		this.object = nodes.querySelector('.worms--expandable');
+		this.template = nodes.querySelector('#' + this.id + '_template');
+		this.target = [...nodes.querySelectorAll('.worms--expandable .worms--expandable-list-cont')];
 		return this;
 	}
 }
