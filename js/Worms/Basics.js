@@ -2,6 +2,13 @@ export default class Basics {
 	constructor(config) {
 		this.config = config;
 		this.config.contentValue = true;
+		this.is_disabled = false;
+	}
+	get disabled() {
+		return this.is_disabled;
+	}
+	set disabled(state) {
+		return this.is_disabled = state;
 	}
 	gen(count) {
 		const chars = "abcdefghijklmnopqrstuvwxyz";
