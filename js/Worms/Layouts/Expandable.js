@@ -11,12 +11,8 @@ export default class Expandable extends Basics {
 			<div class="worms--expandable-title">${this.config.title}</div>
 			<div class="worms--expandable-list">
 				<div class="worms--expandable-list-cont">
-					<script type="text/html" id="${this.id}_template">
-
-					</script>
-					<div class="worms--expandable-list-item">
- 
-					</div>
+					<script type="text/html" id="${this.id}_template"></script>
+					<div class="worms--expandable-list-item"></div>
 				</div>
 				<a href="" class="worms--expandable-list-new">+ New</a>
 			</div>
