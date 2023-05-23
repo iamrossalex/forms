@@ -5,6 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Forms DEMO</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" type="text/css" href="css/Worms/Worms.css">
 	<script src="js/editorjs/Editor.js"></script>
 	<script src="js/editorjs/tools/Header.js"></script>
@@ -20,6 +22,7 @@
 	<style>
 		* {
 			box-sizing: border-box;
+			font-family: 'Roboto', sans-serif;
 		}
 		#targetForm {
 			margin-bottom: 3rem;
@@ -80,7 +83,7 @@
 								type: "Tabs",
 								name: "languageTabs",
 								labels: [
-									"Text", "Select", "Selectable", "Editor", "Expandable"
+									"Text", "Select", "Selectable", "Editor", "Expandable", "Dependable"
 								],
 								nodes: [
 									[
@@ -90,6 +93,24 @@
 											mode: "text",
 											required: true,
 											title: "Text field",
+											placeholder: "",
+											value: ""
+										},
+										{
+											name: "num",
+											type: "Text",
+											mode: "number",
+											required: true,
+											title: "Number",
+											placeholder: "",
+											value: ""
+										},
+										{
+											name: "time",
+											type: "Text",
+											mode: "time",
+											required: true,
+											title: "Time",
 											placeholder: "",
 											value: ""
 										},
@@ -206,6 +227,9 @@
 
 											]
 										}
+									],
+									[
+
 									]
 								]
 							}
@@ -221,5 +245,6 @@
 			console.log(values);
 		});
 	</script>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </body>
 </html>

@@ -46,6 +46,32 @@ export default class Text extends Basics {
 					</div>
 				`;
 				break;
+			case 'time':
+				var template = `
+					<div class="worms--elements worms--elements-text ${this.config.required ? 'required' : ''}>
+						<label class="worms--elements-text-label" for="${this.id}">${this.config.title ?? this.id}</label>
+						<div class="worms--elements-text-container">
+							${this.config.glifLeft ? `<div class="worms--elements-text-container-glif left"><img src="` + this.config.glifLeft + `" alt=""></div>` : ''}
+							${this.config.glifRight ? `<div class="worms--elements-text-container-glif right"><img src="` + this.config.glifRight + `" alt=""></div>` : ''}
+							<input id="${this.id}" type="time" placeholder="${this.config.placeholder ?? ''}" value="${this.config.value ?? ''}">
+						</div>
+						<div class="worms--elements-text-error"></div>
+					</div>
+				`;
+				break;
+			case 'number':
+				var template = `
+					<div class="worms--elements worms--elements-text ${this.config.required ? 'required' : ''}>
+						<label class="worms--elements-text-label" for="${this.id}">${this.config.title ?? this.id}</label>
+						<div class="worms--elements-text-container">
+							${this.config.glifLeft ? `<div class="worms--elements-text-container-glif left"><img src="` + this.config.glifLeft + `" alt=""></div>` : ''}
+							${this.config.glifRight ? `<div class="worms--elements-text-container-glif right"><img src="` + this.config.glifRight + `" alt=""></div>` : ''}
+							<input id="${this.id}" type="number" placeholder="${this.config.placeholder ?? ''}" value="${this.config.value ?? ''}">
+						</div>
+						<div class="worms--elements-text-error"></div>
+					</div>
+				`;
+				break;
 			case 'password':
 				var template = `
 					<div class="worms--elements worms--elements-text ${this.config.required ? 'required' : ''}>

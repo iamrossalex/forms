@@ -2,32 +2,34 @@
 
 ## Tasks
 
-- [ ] Font
+- [x] Font
 - [ ] Popups
 - [ ] Extendable nested lists
 - [ ] Dependency
 
 ## Types of components
 
-- Forms
 - Layouts
-  - Columns
-  - Tabs
+  - [x] Layouts
+  - [x] Tabs
+  - [ ] Expandable
+  - [ ] Popups
+  - [ ] Accordion
 - Elements
-  - Text
-  - Number
-  - Range
-  - Thumbler
-  - Dropdown
-  - RadioGroup
-  - CheckGroup
-  - Textarea
-  - HTMLEditor
-  - CodeEditor
-  - Image
+  - [x] Text
+  - [x] Number
+  - [ ] Range
+  - [ ] Thumbler
+  - [ ] Dropdown
+  - [ ] RadioGroup
+  - [ ] CheckGroup
+  - [ ] Textarea
+  - [ ] HTMLEditor
+  - [ ] CodeEditor
+  - [ ] Image
 - Buttons
-  - Button
-  - ButtonGroup
+  - [ ] Button
+  - [ ] ButtonGroup
 
 ## Editor JS Blocks formating
 

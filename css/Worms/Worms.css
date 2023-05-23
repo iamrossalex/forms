@@ -72,7 +72,7 @@
 }
 .worms--tabs-label {
 	padding: .8rem 1.5rem;
-	font-weight: 700;
+	font-weight: 400;
 	border-bottom: .15rem solid transparent;
 	color: var(--worms-color-text-light);
 	cursor: pointer;
