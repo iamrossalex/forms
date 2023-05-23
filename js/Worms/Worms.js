@@ -1,5 +1,6 @@
 import Basics from "./Basics.js";
 import Layouts from "./Layouts/Layouts.js";
+import Expandable from "./Layouts/Expandable.js";
 import Tabs from "./Layouts/Tabs.js";
 import Text from "./Elements/Text.js";
 import Editor from "./Elements/Editor.js";
@@ -17,7 +18,7 @@ export class Worms {
 		this.target = document.querySelector(this.config.target);
 		this.renderNodes(this.target);
 		this.postRender();
-		return this;
+		return this; //
 	}
 	renderNodes(target = null, cfg = null) {
 		var _this = this;
