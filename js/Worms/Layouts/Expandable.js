@@ -15,7 +15,7 @@ export default class Expandable extends Basics {
 
 					</script>
 					<div class="worms--expandable-list-item">
-
+ 
 					</div>
 				</div>
 				<a href="" class="worms--expandable-list-new">+ New</a>
