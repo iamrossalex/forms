@@ -1,5 +1,12 @@
 # Forms Generator (Under construction!)
 
+## Tasks
+
+- [ ] Font
+- [ ] Popups
+- [ ] Extendable nested lists
+- [ ] Dependency
+
 ## Types of components
 
 - Forms
