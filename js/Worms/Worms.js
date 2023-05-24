@@ -32,7 +32,6 @@ export class Worms {
 			target.append(obj.object);
 			if (obj.afterRender) obj.afterRender();
 		}
-		
 		if (conf.nodes) {
 			if (Array.isArray(conf.nodes[0])) {
 				for(let i=0; i<conf.nodes.length; i++) {
@@ -57,7 +56,7 @@ export class Worms {
 	async retrive() {
 		var result = {};
 		for (const key in this.elements) {
-			result[key] = await this.elements[key].retrive();
+			if (!this.elements[key].disabled) result[key] = await this.elements[key].retrive();
 		}
 		return result;
 	}

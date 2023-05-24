@@ -13,15 +13,23 @@ export default class Select extends Basics {
 					${this.config.glifLeft ? `<div class="worms--elements-text-container-glif left"><img src="` + this.config.glifLeft + `" alt=""></div>` : ''}
 					<select name="" id="${this.id}">
 						<option value="">-- ${this.config.placeholder ?? 'Select'} --</option>
-						${this.config.values.map(v => {
-							if (v.label) {
-								return `<optgroup label="${v.label}">${v.values.map(gv => {
-									return `<option value="${gv.value}" ${v.checked ? 'selected' : ''}>${gv.title ?? gv.value}</option>`;
-								}).join('')}</optgroup>`;
+
+						${(() => {
+							if (this.config.dependency) {
+								
 							} else {
-								if (v.value) return `<option value="${v.value}" ${v.checked ? 'selected' : ''}>${v.title ?? v.value}</option>`;
+								return this.config.values.map(v => {
+									if (v.label) {
+										return `<optgroup label="${v.label}">${v.values.map(gv => {
+											return `<option value="${gv.value}" ${v.checked ? 'selected' : ''}>${gv.title ?? gv.value}</option>`;
+										}).join('')}</optgroup>`;
+									} else {
+										if (v.value) return `<option value="${v.value}" ${v.checked ? 'selected' : ''}>${v.title ?? v.value}</option>`;
+									}
+								}).join('')							
 							}
-						}).join('')}
+						})()}
+
 					</select>
 					<div class="worms--elements-select-indicator"></div>
 				</div>
@@ -34,6 +42,9 @@ export default class Select extends Basics {
 			if (this.config.events.hasOwnProperty(key)) {
 				this.object.querySelector('#'+this.id).addEventListener(key, this.config.events[key]);
 			}
+		}
+		if (this.config.dependency) {
+			this.disabled = true;
 		}
 		return this;
 	}

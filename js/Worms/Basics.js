@@ -8,7 +8,13 @@ export default class Basics {
 		return this.is_disabled;
 	}
 	set disabled(state) {
-		return this.is_disabled = state;
+		if (state == this.is_disabled || !this.object) return;
+		if (state) {
+			this.object.classList.add('worms--hide');
+		} else {
+			this.object.classList.remove('worms--hide');
+		}
+		this.is_disabled = state;
 	}
 	gen(count) {
 		const chars = "abcdefghijklmnopqrstuvwxyz";
