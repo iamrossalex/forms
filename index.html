@@ -260,7 +260,7 @@
 											type: "Select",
 											title: "Model",
 											placeholder: "Select",
-											dependency: ["mark", "model"],
+											dependency: ["mark"],
 											values: {
 												"audi": [
 													{
@@ -317,20 +317,41 @@
 											placeholder: "Select",
 											dependency: ["mark", "model"],
 											values: function(mark = null, model = null) {
-												return [
-													{
-														title: "2020 - 2023",
-														value: "2020-2023"
-													},
-													{
-														title: "2014 - 2019",
-														value: "2014-2019"
-													},
-													{
-														title: "2000 - 2013",
-														value: "2000-2013"
+												if (mark == null && model == null) return null;
+												if (mark == '' || model == '') return null;
+												const values = {
+													'audi': {
+														'a1': [
+															{
+																title: "2020 - 2023",
+																value: "2020-2023"
+															},
+															{
+																title: "2014 - 2019",
+																value: "2014-2019"
+															},
+															{
+																title: "2000 - 2013",
+																value: "2000-2013"
+															}
+														],
+														'a2': [
+															{
+																title: "2020 - 2023",
+																value: "2020-2023"
+															},
+															{
+																title: "2014 - 2019",
+																value: "2014-2019"
+															},
+															{
+																title: "2000 - 2013",
+																value: "2000-2013"
+															}
+														]
 													}
-												];
+												};
+												return values[mark][model] || null;
 											},
 										}
 									]

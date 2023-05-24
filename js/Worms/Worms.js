@@ -51,6 +51,30 @@ export class Worms {
 			if (this.elements[key].postRender) {
 				this.elements[key].postRender();
 			}
+			if (this.elements[key].config.dependency) {
+				var hook = async () => {
+					this.elements[key].disabled = true;
+					for(let i in this.elements[key].config.dependency) {
+						if (this.elements[ this.elements[key].config.dependency[i] ].loading) return;
+					}
+					if (typeof this.elements[key].config.values == 'object') {
+						this.elements[key].load(
+							this.elements[key].config.values[ await this.elements[ this.elements[key].config.dependency[ this.elements[key].config.dependency.length - 1 ] ].retrive() ]
+						);
+					} else if (typeof this.elements[key].config.values == 'function') {
+						var vals = [];
+						for(let i in this.elements[key].config.dependency) {
+							vals.push(
+								await this.elements[ this.elements[key].config.dependency[ i ] ].retrive()
+							);
+						}
+						this.elements[key].load(this.elements[key].config.values(...vals));
+					}
+				};
+				for(let i in this.elements[key].config.dependency) {
+					this.elements[ this.elements[key].config.dependency[i] ].setChange(hook);
+				}
+			}
 		}
 	}
 	async retrive() {

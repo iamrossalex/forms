@@ -3,6 +3,8 @@ import Basics from "../Basics.js";
 export default class Select extends Basics {
 	constructor(config) {
 		super(config);
+		this.loading = false;
+		this.changes = [];
 	}
 	render() {
 		this.id = this.gen(4);
@@ -38,6 +40,8 @@ export default class Select extends Basics {
 		`;
 		const nodes = this.dom(template);
 		this.object = nodes.querySelector(".worms--elements");
+		var _this = this;
+		nodes.querySelector("#"+this.id).addEventListener('change', () => {_this.changed(_this)});
 		if (this.config.events) for (const key in this.config.events) {
 			if (this.config.events.hasOwnProperty(key)) {
 				this.object.querySelector('#'+this.id).addEventListener(key, this.config.events[key]);
@@ -54,7 +58,23 @@ export default class Select extends Basics {
 	async retrive() {
 		return this.object.querySelector('#'+this.id).value;
 	}
+	setChange(func) {
+		this.changes.push(func);
+		return this.changes.length - 1;
+	}
+	unsetChange(funcId) {
+		if (!this.changes[funcId]) return false;
+		this.changes.splice(funcId, 1);
+		return true;
+	}
+	async changed(obj) {
+		if (this.changes.length > 0) for(let i in this.changes) {
+			this.changes[i]();
+		}
+	}
 	async load(values) {
+		if (values == null) return;
+		this.loading = true;
 		this.object.querySelector('#'+this.id).innerHTML = `
 			<option value="">-- ${this.config.placeholder ?? 'Select'} --</option>
 			${values.map(v => {
@@ -67,5 +87,7 @@ export default class Select extends Basics {
 				}
 			}).join('')}
 		`;
+		this.loading = false;
+		this.disabled = false;
 	}
 }
