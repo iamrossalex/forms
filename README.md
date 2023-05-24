@@ -5,7 +5,7 @@
 - [x] Font
 - [ ] Popups
 - [ ] Extendable nested lists
-- [ ] Dependency. Watcher method to set dependency on selected element.
+- […] Dependency. Watcher method to set dependency on selected element.
 
 ## Types of components
 
