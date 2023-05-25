@@ -67,22 +67,44 @@
 /* Tabs */
 .worms--tabs-labels {
 	display: flex;
-	border-bottom: var(--px, 1px) solid var(--worms-color-border);
+	overflow: hidden;
+	height: 2.6rem;
+}
+.worms--tabs-labels > div {
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+	padding-bottom: 2rem;
+	height: 5.6rem;
+}
+.worms--tabs-labels > div::-webkit-scrollbar {
+	width: 1rem; /* Set the width of the scrollbar */
 }
 .worms--tabs-label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	padding: .8rem 1.5rem;
 	font-weight: 400;
-	border-bottom: .15rem solid transparent;
-	color: var(--worms-color-text-light);
+	font-size: .8rem;
+	letter-spacing: .05rem;
+	text-transform: uppercase;
+	line-height: 100%;
+	color: var(--worms-color-text);
 	cursor: pointer;
+    scroll-snap-align: start;
 }
 .worms--tabs-label.active {
-	border-color: var(--worms-color-text-light);
+	background-color: var(--worms-color-hover);
+	font-weight: 700;
+	border-radius: .5rem;
 	color: var(--worms-color-text);
 	cursor: default;
 }
 .worms--tabs-label[disabled] {
-	border-color: transparent;
 	color: var(--worms-color-border);
 	pointer-events: none;
 	cursor: not-allowed;

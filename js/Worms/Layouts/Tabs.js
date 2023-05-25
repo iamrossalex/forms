@@ -9,9 +9,11 @@ export default class Tabs extends Basics {
 		const nodes = this.dom(`
 			<div class="worms--tabs">
 				<div class="worms--tabs-labels">
-					${this.config.labels.map((label, i) => {
-						return `<label class="worms--tabs-label">${label ?? i}</label>`;
-					}).join('')}
+					<div>
+						${this.config.labels.map((label, i) => {
+							return `<label class="worms--tabs-label">${label ?? i}</label>`;
+						}).join('')}
+					</div>
 				</div>
 				<div class="worms--tabs-items">	
 					${this.config.labels.map(() => {
@@ -30,11 +32,11 @@ export default class Tabs extends Basics {
 				let active = this.object.querySelector('.worms--tabs-label.active');
 				if (active) {
 					active.classList.remove('active');
-					let ind = Array.prototype.indexOf.call(active.closest('.worms--tabs-labels').children, active);
+					let ind = Array.prototype.indexOf.call(active.closest('.worms--tabs-labels > div').children, active);
 					this.target[ind].classList.remove('active');
 				}
 				ev.currentTarget.classList.add('active');
-				let ind = Array.prototype.indexOf.call(ev.currentTarget.closest('.worms--tabs-labels').children, ev.currentTarget);
+				let ind = Array.prototype.indexOf.call(ev.currentTarget.closest('.worms--tabs-labels > div').children, ev.currentTarget);
 				this.target[ind].classList.add('active');
 			});
 		});
