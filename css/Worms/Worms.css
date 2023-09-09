@@ -500,7 +500,7 @@
 	display: flex;
 	gap: 2rem;
 	justify-content: center;
-	background: linear-gradient(to bottom, #ffffff00 -1%, #ffffffee 80%);
+	background: linear-gradient(to bottom, #ffffff00 0%, #ffffffee 80%);
 	padding: 1rem 0;
 }
 .worms--elements-image-item > div:nth-child(2) a {
