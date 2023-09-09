@@ -477,11 +477,11 @@
 }
 .worms--elements-image-item {
 	flex: 0 0 100%;
+	position: relative;
 	display:flex;
 	flex-direction: column;
 	transition: all 0.1s linear;
 	scroll-snap-align: start;
-	border: var(--px, 1px) solid var(--worms-color-border);
 }
 .worms--elements-image-item > div:nth-child(1) {
 	width: 100%;
@@ -492,10 +492,15 @@
 	aspect-ratio: 1 / 1;
 }
 .worms--elements-image-item > div:nth-child(2) {
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	left: 0;
+	width: 100%;
 	display: flex;
 	gap: 2rem;
 	justify-content: center;
-	background-color: var(--worms-color-hover);
+	background: linear-gradient(to bottom, #ffffff00 -1%, #ffffffee 80%);
 	padding: 1rem 0;
 }
 .worms--elements-image-item > div:nth-child(2) a {
@@ -512,12 +517,11 @@
 .worms--elements-image-nav {
 	position: absolute;
 	z-index: 1;
-	height: 4rem;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	bottom: 0;
+	bottom: 1rem;
 	left: 0;
 	padding: 0 1rem;
 }
@@ -529,7 +533,7 @@
 .worms--elements-image-nav > div a svg,
 .worms--elements-image-nav > div label svg {
 	fill: var(--worms-color-text);
-	height: 1.5rem;
+	height: 1rem;
 }
 .worms--elements-image-nav > div a:hover svg,
 .worms--elements-image-nav > div label:hover svg {
